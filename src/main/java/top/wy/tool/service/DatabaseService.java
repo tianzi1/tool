@@ -1,7 +1,6 @@
 package top.wy.tool.service;
 
 import org.springframework.stereotype.Service;
-import top.wy.tool.entity.TableStructure;
 
 import java.util.List;
 
@@ -10,6 +9,6 @@ import java.util.List;
  * @date :
  */
 @Service
-public interface TableService {
-    public List<TableStructure> getStructure(String name);
+public interface DatabaseService {
+    public List<String> getAllTables();
 }

@@ -1,6 +1,7 @@
 package top.wy.tool.dao;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import top.wy.tool.entity.TableStructure;
 
@@ -23,6 +24,7 @@ public interface Table {
             "FROM\n" +
             " INFORMATION_SCHEMA.COLUMNS\n" +
             "where\n" +
-            "table_name  = 'secumain'")
-    public List<TableStructure> getTableStructure();
+            "table_schema = '${database}'"+
+            "and table_name  = '${name}'")
+    public List<TableStructure> getTableStructure(@Param("name") String name,@Param("database") String database);
 }
